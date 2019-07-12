@@ -19,3 +19,25 @@ Route::get('/', function () {
 
 Route::resource('/admin', 'AdminController');
 Route::resource('/admin/user', 'UserController');
+
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/signin', function () {
+    return view('login');
+});
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return Redirect::to('');
+})->middleware("auth");
+
+Route::get('/register', function () {
+    return view('register.register');
+});
+
+
+Route::post('/register_action','RegisterController@store');
+Route::post('/login_check','LoginController@login');

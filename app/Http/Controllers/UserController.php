@@ -32,9 +32,24 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+public function register(Request $request){
+    return $request->all();
+}
+
+
+
+
+
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'      => 'required',
+            'email'     => 'required|email|unique:teachers|unique:students',
+            'password'  => 'required|min:8|confirmed',
+
+        ]);
     }
 
     /**
