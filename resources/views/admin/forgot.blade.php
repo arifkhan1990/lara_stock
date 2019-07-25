@@ -22,7 +22,7 @@
             </div>
         @endif
         <form autocomplete="off" action="{{ route('forgot_check') }}" method="POST">
-          @csrf
+         {{csrf_field()}}
           <div class="group">
             <label for="email">Enter Your Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your Email">

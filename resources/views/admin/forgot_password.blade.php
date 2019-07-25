@@ -22,7 +22,7 @@
             </div>
         @endif
         <form autocomplete="off" action="{{ route('forgot_new',$user->id) }}" method="POST">
-          @csrf
+         {{csrf_field()}}
           <div class="group">
             <label for="old_password">Old Password:</label>
             <input type="text" id="old_password" name="old_password" placeholder="Enter your Old Password">
